@@ -3,13 +3,15 @@
 <body>
     <h1>Bienvenido!!</h1>
     <h2>Endpoints disponibles:</h2>
-    <h2>Ejercicio Nº1:</h2>
+    <h2>Moviles</h2>
     <h3>[GET] /moviles?limit=[]&offset=[] --> renderizar con table.html el listado de moviles</h3>
-    <h2>Ejercicio Nº2:</h2>
+    <h2>Cargar Movil</h2>
     <h3>[POST] /cargar --> complete el registro de moviles por JSON</h3>
-    <h2>Ejercicio Nº3:</h2>
+    <h2>Graficar</h2>
     <h3>[GET] /grafica --> mostrar un gráfico con lo recaudado de todos los moviles
-g
+    <h2>Resumen Movil</h2>
+    <h3>[GET] /resumen_movil --> mostrar un gráfico con lo recaudado de todos los moviles
+
     <p></p>
 
     <!-- Codigo utilizado para redireccionar a otra pagina-->
@@ -23,6 +25,10 @@ g
 
     <form action="{{url_for('grafica')}}">
         <input type="submit" value="Grafica"/>
+    </form>
+
+    <form action="{{url_for('resumen_movil')}}">
+        <input type="submit" value="Resumen"/>
     </form>
 
 </body>

@@ -40,7 +40,7 @@ def report(limit=0, offset=0):
 
     return json_result_list
 
-def dashboard():
+def datos_grafica():
    
     query = db.session.query(Movil).filter(Movil.recaudado).filter(Movil.id)
     query_results = query.all()

@@ -84,7 +84,7 @@ def grafica():
         eje_x = 'ID'
         eje_y = 'Recaudado'
         titulo = 'Grafico de caja'
-        x, y = movil.dashboard()
+        x, y = movil.datos_grafica()
 
         image_html = graficar.graficar(x, y, eje_x, eje_y, titulo)
 
@@ -110,12 +110,10 @@ def resumen_movil():
             fecha = str(request.form.get('fecha'))
             num_movil = str(request.form.get('num_movil'))
 
+            data = movil.resumen(fecha, num_movil)
+
             if(fecha is None or num_movil is None or num_movil.isdigit() is False):
                 return Response(status=400)
-
-            movil.insert(fecha, int(num_movil))
-
-            data = movil.resumen()
 
             return render_template('tabla_resumen.html', data=data)
         
