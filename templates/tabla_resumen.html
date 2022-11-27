@@ -12,13 +12,13 @@
 
 <h2>Movil</h2>
 
-<p>Esta aplicación mantiene el registro de las personas ingresadas en la plataforma</p>
 
 <table border="1">
     <thead cellpadding="1.0" cellspacing="1.0">
         <tr>
             <th>Fecha</th>            
             <th>Numero</th>
+            <th>Viajes</th>
             <th>Tiempo total</th>
             <th>Recaudado total</th>
         </tr>
@@ -26,6 +26,7 @@
         <tr>
             <td>{{row['fecha']}}</td>
             <td>{{row['numero']}}</td>
+            <td>{{row['cant_viajes']}}</td>
             <td>{{row['tiempo']}}</td>
             <td>{{row['recaudado']}}</td>
         </tr>

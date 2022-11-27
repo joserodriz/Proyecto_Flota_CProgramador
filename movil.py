@@ -56,7 +56,8 @@ def datos_grafica():
 
 def resumen(fecha_consulta, numero_movil):
    
-    query = db.session.query(Movil).filter(Movil.fecha_consulta).filter(Movil.numero_movil).filter(Movil.recaudado).filter(Movil.tiempo)
+    num_movil = int(numero_movil)
+    query = db.session.query(Movil).filter(Movil.fecha).filter(Movil.num_movil).filter(Movil.recaudado).filter(Movil.tiempo)
     query_results = query.all()
 
     if query_results is None or len(query_results) == 0:
@@ -64,13 +65,16 @@ def resumen(fecha_consulta, numero_movil):
         return []
 
     fecha = fecha_consulta
-    numero = numero_movil
-    recaudado = sum([x.recaudado for x in query_results])
-    tiempo = sum([x.tiempo for x in query_results])
+    numero = num_movil
+    cant_viajes = len([x.num_movil for x in query_results if x.num_movil == num_movil and x.fecha == fecha_consulta])
+    recaudado = sum([x.recaudado for x in query_results if x.num_movil == num_movil and x.fecha == fecha_consulta])
+    tiempo = sum([x.tiempo for x in query_results if x.num_movil == num_movil and x.fecha == fecha_consulta])
 
-    resumen = {'fecha': fecha ,'numero_mov': numero, 'recaudado': recaudado, 'tiempo': tiempo}
+    resumen = {'fecha': fecha ,'numero': numero, 'cant_viajes': cant_viajes, 'tiempo': tiempo, 'recaudado': recaudado}
+    json_resumen = []
+    json_resumen.append(resumen)
 
-    return resumen
+    return json_resumen
 
 
 if __name__ == "__main__":

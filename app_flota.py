@@ -110,10 +110,10 @@ def resumen_movil():
             fecha = str(request.form.get('fecha'))
             num_movil = str(request.form.get('num_movil'))
 
-            data = movil.resumen(fecha, num_movil)
-
             if(fecha is None or num_movil is None or num_movil.isdigit() is False):
                 return Response(status=400)
+
+            data = movil.resumen(fecha, num_movil)
 
             return render_template('tabla_resumen.html', data=data)
         
