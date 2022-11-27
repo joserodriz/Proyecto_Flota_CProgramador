@@ -15,7 +15,7 @@ def graficar(x, y, ex, ey, tit):
         Crear el grafico que se desea mostrar en HTML
     '''
     fig, ax = plt.subplots(figsize=(16, 9))
-    ax.plot(x, y)
+    ax.bar(x, y)
     plt.xlabel(ex)
     plt.ylabel(ey)
     plt.title(tit)
