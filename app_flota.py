@@ -83,7 +83,7 @@ def grafica():
 
         eje_x = 'ID'
         eje_y = 'Recaudado'
-        titulo = 'Grafico de caja'
+        titulo = 'Grafico de Recaudado'
         x, y = movil.datos_grafica()
 
         image_html = graficar.graficar(x, y, eje_x, eje_y, titulo)
