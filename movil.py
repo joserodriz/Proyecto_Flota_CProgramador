@@ -40,17 +40,17 @@ def report(limit=0, offset=0):
 
     return json_result_list
 
-def datos_grafica():
+def datos_grafica(fecha):
    
-    query = db.session.query(Movil).filter(Movil.recaudado).filter(Movil.id)
+    query = db.session.query(Movil).filter(Movil.recaudado).filter(Movil.id).filter(Movil.fecha)
     query_results = query.all()
 
     if query_results is None or len(query_results) == 0:
         
         return []
 
-    recaudado = [x.recaudado for x in query_results]
-    id = [x.id for x in query_results]
+    recaudado = [x.recaudado for x in query_results if x.fecha == fecha]
+    id = [x.id for x in query_results if x.fecha == fecha]
 
     return id, recaudado
 

@@ -77,21 +77,32 @@ def cargar():
             return jsonify({'trace': traceback.format_exc()})
 
 
-@app.route("/grafica")
+@app.route("/grafica", methods=['GET', 'POST'])
 def grafica():
-    try:
+    
+     if request.method == 'GET':
+        try:
+            return render_template('resumir_recaudado.html')
+        except:
+            return jsonify({'trace': traceback.format_exc()})
 
-        eje_x = 'ID'
-        eje_y = 'Recaudado'
-        titulo = 'Grafico de Recaudado'
-        x, y = movil.datos_grafica()
+     if request.method == 'POST':        
+        try:
 
-        image_html = graficar.graficar(x, y, eje_x, eje_y, titulo)
+            fecha = ""
+            
+            fecha = str(request.form.get('fecha'))
+            x, y = movil.datos_grafica(fecha)
 
-        return Response(image_html.getvalue(), mimetype='image/png')
-    except:
-        return jsonify({'trace': traceback.format_exc()})
+            eje_x = fecha
+            eje_y = 'Recaudado'
+            titulo = 'Grafico de Recaudado'
 
+            image_html = graficar.graficar(x, y, eje_x, eje_y, titulo)
+
+            return Response(image_html.getvalue(), mimetype='image/png')
+        except:
+            return jsonify({'trace': traceback.format_exc()})
 
 @app.route("/resumen_movil", methods=['GET', 'POST'])
 def resumen_movil():
