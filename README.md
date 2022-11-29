@@ -1,18 +1,23 @@
 # Proyecto Flota 2
-Entrada del sistema
+A. El Proyecto consiste en el ingreso de datos por HTTP, desde boton Cargar de front end, de una flota de vehiculos. La informacion cargada es:
 
-El programa recibe por HTTP la información de cada viaje realizado por nuestra flota, el JSON que reciba debe tener al menos la siguiente información:
+1. dia-mes-año del viaje efectuado
+2. Identificador del vehículo (numero entre 100 y 999)
+3. Tiempo en minutos del viaje
+4. Recaudado en el viaje
 
-Año-Mes-día del viaje efectuado
-Identificador del vehículo
-¿Cuánto tiempo el vehículo tardó en llegar a destino (tiempo circulando)? [Valor en minutos].
-¿Cuánto recaudó por ese viaje?
+B. Se puede obtener un resumen, desde boton Resumen, de los viajes realizados por un movil en una fecha ingresada, donde se muestra la siguiente informacion:
 
-Salida del sistema
+1. Fecha de viajes
+2. Movil 
+3. Cantidad de viajes realizados
+4. Tiempo total de viajes realizados
+5. Total recaudado
 
-Se deberá poder extraer de la base de datos un resumen con los siguientes resultados (y cualquier otro que desee agregar el alumno):
+La informacion del numero de movil y fecha es enviada por HTTP al programa.
 
-¿Cuántos viajes realizó un determinado vehículo ingresado por consola?
-¿Cuánto tiempo estuvo circulando el vehículo?
-¿Cuánta recaudación logró el vehículo?
-Se deberá especificar el día, mes o año en donde se desea realizar el análisis para el vehículo ingresado. Toda la información necesaria para crear el reporte se debe enviar por HTTP.
+C. Se puede obtener grafica de barras de montos recaudados por todos los moviles en fecha enviada por HTTP al programa, desde el boton Grafica.
+
+D. Se muestra en pantalla la tabla completa de datos ingresados desde el boton Movil del Front End.
+
+
