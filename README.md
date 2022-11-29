@@ -1,5 +1,5 @@
 # Proyecto Flota 2
-A. El Proyecto consiste en el ingreso de datos por HTTP, desde boton Cargar de front end, de una flota de vehiculos. La informacion cargada es:
+A. El Proyecto consiste en el ingreso de datos por HTTP de una flota de vehiculos, desde boton Cargar de front end. La informacion cargada es:
 
 1. dia-mes-año del viaje efectuado
 2. Identificador del vehículo (numero entre 100 y 999)
