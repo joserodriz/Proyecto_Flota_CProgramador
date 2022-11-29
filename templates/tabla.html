@@ -17,6 +17,7 @@
 <table border="1">
     <thead cellpadding="1.0" cellspacing="1.0">
         <tr>
+            <th>ID</th>
             <th>Fecha</th>            
             <th>Numero</th>
             <th>Tiempo</th>
@@ -24,6 +25,7 @@
         </tr>
         {% for row in data %}
         <tr>
+            <td>{{row['id']}}</td>
             <td>{{row['fecha']}}</td>
             <td>{{row['num_movil']}}</td>
             <td>{{row['tiempo']}}</td>
