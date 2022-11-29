@@ -35,7 +35,7 @@ def report(limit=0, offset=0):
     json_result_list = []
 
     for moviles in query:
-        json_result = {'fecha': moviles.fecha, 'num_movil': moviles.num_movil, 'tiempo': moviles.tiempo, 'recaudado': moviles.recaudado}
+        json_result = {'id': moviles.id, 'fecha': moviles.fecha, 'num_movil': moviles.num_movil, 'tiempo': moviles.tiempo, 'recaudado': moviles.recaudado}
         json_result_list.append(json_result)
 
     return json_result_list

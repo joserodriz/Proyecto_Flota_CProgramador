@@ -68,8 +68,11 @@ def cargar():
             if(fecha is None or num_movil is None or tiempo.isdigit() is False or recaudado.isdigit() is False):
                     return Response(status=400)
 
+            if(int(num_movil) > 100 and int(num_movil) <= 999 and len(fecha) == 8):
+                movil.insert(fecha, int(num_movil), int(tiempo), int(recaudado))
 
-            movil.insert(fecha, int(num_movil), int(tiempo), int(recaudado))
+            else:
+                return render_template('error.html')
 
             return redirect(url_for('moviles'))
         
